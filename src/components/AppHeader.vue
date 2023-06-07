@@ -6,18 +6,18 @@ import Container from "./Container.vue";
 </script>
 
 <template>
-  <div class="top-bar">
+  <header class="header">
     <Container>
-      <div class="top-bar__inner">
-        <img class="top-bar__logo" :src="Logotype" alt="Hero Logotype" />
+      <div class="header__inner">
+        <img class="header__logo" :src="Logotype" alt="Hero Logotype" />
         <Button>Join waitlist</Button>
       </div>
     </Container>
-  </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>
-.top-bar {
+.header {
   padding: 1rem 0;
 
   &__inner {

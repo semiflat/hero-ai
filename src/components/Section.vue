@@ -3,8 +3,8 @@ import Container from "./Container.vue";
 import Heading from "./Heading.vue";
 
 export interface Section {
-  title: string;
-  lead: string;
+  title?: string;
+  lead?: string;
 }
 
 const props = defineProps<Section>();
@@ -13,8 +13,8 @@ const props = defineProps<Section>();
 <template>
   <section class="section">
     <Container>
-      <div class="section__header">
-        <Heading tag="h2" class="section__title">
+      <div v-if="props.title || props.lead" class="section__header">
+        <Heading size="lg" tag="h2" class="section__title">
           {{ props.title }}
         </Heading>
         <p class="section__lead">
@@ -30,6 +30,10 @@ const props = defineProps<Section>();
 .section {
   padding: 5rem 0 0;
 
+  @media (min-width: 768px) {
+    padding: 10rem 0 0;
+  }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -37,10 +41,15 @@ const props = defineProps<Section>();
     text-align: center;
     gap: 1.5rem;
     margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 5rem;
+    }
   }
 
   &__lead {
     max-width: 50ch;
+    opacity: 0.72;
   }
 }
 </style>

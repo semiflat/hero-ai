@@ -10,7 +10,7 @@ const cards = [
       "Tell Hero about your startup and let it do its magic. Get a marketing page that’s ready to ship within seconds.",
   },
   {
-    lottiePath: 'lottie/editing-easy.json',
+    lottiePath: 'lottie/your-personal-copywriter.json',
     title: "Your personal AI copywriter",
     description:
       "Never wait to publish your website because you’re still working on copy.",

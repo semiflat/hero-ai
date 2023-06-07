@@ -2,19 +2,19 @@
 import Layout from "../layouts/Layout.astro";
 
 import Hero from "../components/Hero.vue";
-import TopBar from "../components/TopBar.vue";
 
 import BenefitsSection from "../sections/home/BenefitsSection.vue";
+import CTASection from "../sections/home/CTASection.vue";
 import FeaturesSection from "../sections/home/FeaturesSection.vue";
 import VideoSection from "../sections/home/VideoSection.vue";
 ---
 
 <Layout title="Hero Landing Page">
 	<main>
-		<TopBar />
 		<Hero />
 		<VideoSection client:visible />
 		<FeaturesSection client:visible />
 		<BenefitsSection />
+		<CTASection />
 	</main>
 </Layout>
