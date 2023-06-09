@@ -18,7 +18,12 @@ import Container from "./Container.vue";
 
 <style lang="scss" scoped>
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 1rem 0;
+  z-index: 1;
 
   &__inner {
     display: flex;
@@ -28,7 +33,7 @@ import Container from "./Container.vue";
 
   &__logo {
     flex: 0 0 0;
-    width: 96px;
+    width: 6rem;
   }
 }
 </style>
