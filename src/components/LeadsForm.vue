@@ -11,21 +11,23 @@ import Button from "./Button.vue";
       placeholder="Your e-mail"
       required
     />
-    <Button is="button" type="submit">Join waitlist</Button>
+    <Button class="leads-form__button" is="button" type="submit">Join waitlist</Button>
   </form>
 </template>
 
 <style lang="scss" scoped>
 .leads-form {
   display: inline-flex;
-  gap: 1rem;
+  width: 100%;
+  gap: .5rem;
 
   &__input {
+    flex-grow: 1;
+    min-width: 0;
     height: 2.5rem;
     border-radius: 0.666rem;
     border: none;
     padding: 0 0.75rem;
-    flex-grow: 1;
     background: rgba(255, 255, 255, 0.16);
     color: rgba(255, 255, 255, 1);
     font-size: 0.875rem;

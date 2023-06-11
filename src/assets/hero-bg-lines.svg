@@ -1,0 +1,59 @@
+<svg width="1440" height="1095" viewBox="0 0 1440 1095" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_8_39" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="120" width="1440" height="800">
+<rect y="120" width="1440" height="800" fill="url(#paint0_radial_8_39)"/>
+</mask>
+<g mask="url(#mask0_8_39)">
+<path d="M0 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M160 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M320 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M480 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M640 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M1440 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M1280 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M1120 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M960 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+<path d="M800 1095L720 0" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<mask id="mask1_8_39" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="357" y="120" width="726" height="584">
+<rect x="357" y="120" width="726" height="584" fill="url(#paint1_radial_8_39)"/>
+</mask>
+<g mask="url(#mask1_8_39)">
+<g opacity="0.96">
+<path d="M168 624H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.88">
+<path d="M168 544H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.8">
+<path d="M168 472H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.72">
+<path d="M168 408H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.64">
+<path d="M168 352H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.56">
+<path d="M168 304H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.48">
+<path d="M168 264H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.4">
+<path d="M168 232H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+<g opacity="0.32">
+<path d="M168 208H1272" stroke="white" style="mix-blend-mode:overlay"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial_8_39" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 520) rotate(90) scale(400 720)">
+<stop stop-color="#D9D9D9"/>
+<stop offset="1" stop-color="#D9D9D9" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="paint1_radial_8_39" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 308) rotate(90) scale(396 363)">
+<stop stop-color="#D9D9D9"/>
+<stop offset="1" stop-color="#D9D9D9" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>

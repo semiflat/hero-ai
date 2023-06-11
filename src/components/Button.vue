@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+export interface Button {
+  primary?: boolean;
+}
+const props = defineProps<Button>();
+</script>
 
 <template>
-  <component is="a" class="button">
+  <component is="a" class="button" :class="{ 'button--primary': props.primary }">
     <slot></slot>
   </component>
 </template>
@@ -18,6 +23,14 @@
   color: white;
   font-size: 0.875rem;
   font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
+  transition: .3s ease;
+
+  @media (hover:hover) {
+    &:hover {
+      opacity: .8;
+    }
+  }
 }
 </style>
