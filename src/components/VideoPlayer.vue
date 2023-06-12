@@ -30,7 +30,7 @@ const playVideo = () => {
         />
       </button>
     </div>
-    <video class="video-player__player" controls width="250" ref="video">
+    <video class="video-player__player" controls width="250" ref="video" :poster="Poster">
       <source :src="Teaser" type="video/mp4" />
       Download the <a :href="Teaser">video</a>
     </video>
@@ -53,6 +53,8 @@ const playVideo = () => {
     left: 0;
     bottom: 0;
     right: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
     cursor: pointer;
 
@@ -70,6 +72,7 @@ const playVideo = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
     width: 4rem;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
