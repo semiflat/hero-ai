@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import VueWriter from "vue-writer";
 import Container from "./Container.vue";
 import Heading from "./Heading.vue";
 import LeadsForm from "./LeadsForm.vue";
@@ -11,21 +12,33 @@ import StarsIcon from "../icons/star.svg";
 
 <template>
   <div class="hero">
-    <picture>
-      <source media="(min-width: 768px)" :srcset="BgDesktop" />
-      <img class="hero__bg" :src="BgMobile" alt="" loading="lazy" />
-    </picture>
+    <div class="hero__bg">
+      <picture>
+        <source media="(min-width: 768px)" :srcset="BgDesktop" />
+        <img :src="BgMobile" alt="" loading="lazy" />
+      </picture>
+      <div class="hero__rocket" />
+    </div>
     <Container>
       <div class="hero__inner">
         <Heading tag="h1" class="hero__title">
           The future of
-          <div class="hero__highlight">
-            generating
-            <span class="hero__badge">
-              <img :src="StarsIcon" alt="" />
-              Hero AI
-            </span>
+          <div class="hero__highlight-placeholder">
+            <div class="hero__highlight">
+              <vue-writer
+                :array="['generating', 'designing']"
+                :eraseSpeed="50"
+                :typeSpeed="100"
+                :delay="2000"
+                :start="2000"
+              ></vue-writer>
+              <span class="hero__badge">
+                <img :src="StarsIcon" alt="" />
+                Hero AI
+              </span>
+            </div>
           </div>
+
           beautiful websites is here.
         </Heading>
         <p class="hero__lead">
@@ -47,6 +60,16 @@ import StarsIcon from "../icons/star.svg";
   }
   50% {
     opacity: 1;
+  }
+}
+
+@keyframes typewriter-10-letter {
+  from {
+    width: 10ch;
+  }
+
+  to {
+    width: 0ch;
   }
 }
 
@@ -80,8 +103,23 @@ import StarsIcon from "../icons/star.svg";
     opacity: 0.72;
   }
 
-  &__highlight {
+  &__title {
+    @media (max-width: 767px) {
+      font-size: 6.5vw;
+    }
+  }
+
+  &__highlight-placeholder {
     position: relative;
+    display: inline-block;
+    width: 5.6em;
+    height: 1em;
+  }
+
+  &__highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: inline-block;
     padding: 0 0.1em;
     background: rgba(255, 255, 255, 0.3);
@@ -154,6 +192,11 @@ import StarsIcon from "../icons/star.svg";
     &__form {
       margin: 0 auto 6rem;
     }
+  }
+
+  &:deep(.cursor) {
+    display: inline-block;
+    width: 1px;
   }
 }
 </style>
