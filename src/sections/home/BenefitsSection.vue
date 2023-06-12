@@ -67,12 +67,8 @@ const cards = [
 .benefits-section {
   &__list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-gap: 2rem;
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
 
     @media (min-width: 1040px) {
       grid-gap: 4rem;

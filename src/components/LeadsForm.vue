@@ -1,9 +1,15 @@
 <script setup lang="ts">
 import Button from "./Button.vue";
+
+export interface LeadsForm {
+  allowStack?: boolean;
+}
+
+const props = defineProps<LeadsForm>();
 </script>
 
 <template>
-  <form class="leads-form">
+  <form class="leads-form" :class="{ 'leads-form--stacked': props.allowStack }">
     <label class="leads-form__label">Your e-mail</label>
     <input
       class="leads-form__input"
@@ -11,15 +17,19 @@ import Button from "./Button.vue";
       placeholder="Your e-mail"
       required
     />
-    <Button class="leads-form__button" is="button" type="submit">Join waitlist</Button>
+    <Button class="leads-form__button" is="button" type="submit" primary>
+      Join waitlist
+    </Button>
   </form>
 </template>
 
 <style lang="scss" scoped>
 .leads-form {
+  $block: &;
+
   display: inline-flex;
   width: 100%;
-  gap: .5rem;
+  gap: 0.5rem;
 
   &__input {
     flex-grow: 1;
@@ -52,6 +62,26 @@ import Button from "./Button.vue";
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  &--stacked {
+    flex-wrap: wrap;
+
+    #{$block} {
+      &__input {
+        min-width: 10rem;
+        max-width: 100%;
+      }
+
+      &__button {
+        flex-grow: 1;
+
+        @media (min-width: 768px) {
+          flex-grow: 0;
+          flex-shrink: 0;
+        }
+      }
+    }
   }
 }
 </style>

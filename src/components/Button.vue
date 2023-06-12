@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 export interface Button {
   primary?: boolean;
 }
@@ -31,6 +32,10 @@ const props = defineProps<Button>();
     &:hover {
       opacity: .8;
     }
+  }
+
+  &--primary {
+    background: #171717;
   }
 }
 </style>

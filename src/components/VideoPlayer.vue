@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 import Poster from "../assets/video-poster.png";
 import Teaser from "../assets/video-teaser.mp4";
 import PlayIcon from "../assets/play-icon.svg";
 
 const video = ref(null);
-const showPoster = ref(true)
+const showPoster = ref(true);
 
 const playVideo = () => {
   video.value.play();
   showPoster.value = false;
-}
-
+};
 </script>
 
 <template>
@@ -61,7 +60,7 @@ const playVideo = () => {
     @media (hover: hover) {
       &:hover {
         #{$block}__poster-button {
-          transform:  translate(-50%, -50%) scale(1.05);
+          transform: translate(-50%, -50%) scale(1.05);
         }
       }
     }
@@ -72,22 +71,32 @@ const playVideo = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 5.5rem;
+    width: 4rem;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: none;
     background: linear-gradient(180deg, #ffffff 0%, #e1e1e1 100%);
     box-shadow: 0px 19.3128px 38.6256px #000000;
     cursor: pointer;
-    transition: .5s ease;
+    transition: 0.5s ease;
+
+    @media (min-width: 768px) {
+      width: 5.5rem;
+    }
   }
 
   &__play-icon {
     position: absolute;
-    top: 1.5rem;
-    left: calc(1.5rem + 2px); // optically center
-    width: 2.5rem;
+    top: 1rem;
+    left: calc(1rem + 2px); // optically center
+    width: 2rem;
     aspect-ratio: 1 / 1;
+
+    @media (min-width: 768px) {
+      top: 1.5rem;
+      left: calc(1.5rem + 2px); // optically center
+      width: 2.5rem;
+    }
   }
 
   &__player {
