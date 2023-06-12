@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Poster from "../assets/video-poster.png";
+import Poster from "../assets/video-poster.webp";
 import Teaser from "../assets/video-teaser.mp4";
 import PlayIcon from "../assets/play-icon.svg";
 
@@ -26,7 +26,6 @@ const playVideo = () => {
         <img
           class="video-player__play-icon"
           :src="PlayIcon"
-          loading="lazy"
           alt=""
         />
       </button>

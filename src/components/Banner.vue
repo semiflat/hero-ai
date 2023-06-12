@@ -14,18 +14,10 @@ const props = defineProps<Banner>();
 
 <template>
   <div class="banner">
-    <img
-      class="banner__bg banner__bg--mobile"
-      :src="BgMobile"
-      alt=""
-      loading="lazy"
-    />
-    <img
-      class="banner__bg banner__bg--desktop"
-      :src="BgDesktop"
-      alt=""
-      loading="lazy"
-    />
+    <picture>
+      <source media="(min-width: 768px)" :srcset="BgDesktop" />
+      <img class="banner__bg" :src="BgMobile" alt="" loading="lazy" />
+    </picture>
     <div class="banner__text-wrapper">
       <Heading size="md" tag="h2" class="banner__title">
         {{ props.title }}
@@ -60,20 +52,6 @@ const props = defineProps<Banner>();
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    &--desktop {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      &--desktop {
-        display: block;
-      }
-
-      &--mobile {
-        display: none;
-      }
-    }
   }
 
   &__text-wrapper {

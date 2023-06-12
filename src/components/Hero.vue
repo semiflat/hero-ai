@@ -11,9 +11,10 @@ import StarsIcon from "../icons/star.svg";
 
 <template>
   <div class="hero">
-    <img class="hero__bg hero__bg--mobile" :src="BgMobile" alt="" />
-    <img class="hero__bg hero__bg--desktop" :src="BgDesktop" alt="" />
-
+    <picture>
+      <source media="(min-width: 768px)" :srcset="BgDesktop" />
+      <img class="hero__bg" :src="BgMobile" alt="" loading="lazy" />
+    </picture>
     <Container>
       <div class="hero__inner">
         <Heading tag="h1" class="hero__title">
@@ -64,19 +65,8 @@ import StarsIcon from "../icons/star.svg";
     width: 100%;
     height: auto;
 
-    &--desktop {
-      display: none;
-    }
-
     @media (min-width: 768px) {
-      &--desktop {
-        display: block;
-        min-width: 1440px;
-      }
-
-      &--mobile {
-        display: none;
-      }
+      min-width: 1440px;
     }
   }
 
