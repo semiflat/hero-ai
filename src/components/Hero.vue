@@ -4,8 +4,6 @@ import Heading from "./Heading.vue";
 import LeadsForm from "./LeadsForm.vue";
 import VideoPlayer from "./VideoPlayer.vue";
 
-// import GradientsDesktop from "../assets/hero-bg-gradient.svg";
-// import LinesDesktop from "../assets/hero-bg-lines.png";
 import BgDesktop from "../assets/hero-bg-desktop.webp";
 import BgMobile from "../assets/hero-bg-mobile.webp";
 import StarsIcon from "../icons/star.svg";
@@ -15,8 +13,7 @@ import StarsIcon from "../icons/star.svg";
   <div class="hero">
     <img class="hero__bg hero__bg--mobile" :src="BgMobile" alt="" />
     <img class="hero__bg hero__bg--desktop" :src="BgDesktop" alt="" />
-    <!--<img class="hero__bg hero__bg--desktop" :src="LinesDesktop" alt="" />-->
-    <!--<img class="hero__bg hero__bg--desktop" :src="GradientsDesktop" alt="" />-->
+
     <Container>
       <div class="hero__inner">
         <Heading tag="h1" class="hero__title">
@@ -56,19 +53,16 @@ import StarsIcon from "../icons/star.svg";
   position: relative;
   padding: 7.5rem 0 0;
   width: 100%;
-  overflow: hidden;
+  overflow-x: clip;
 
   &__bg {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: -1;
     width: 100%;
     height: auto;
-
-    &--mobile {
-      min-width: 400px;
-    }
 
     &--desktop {
       display: none;

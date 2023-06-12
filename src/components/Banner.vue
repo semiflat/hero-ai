@@ -61,10 +61,6 @@ const props = defineProps<Banner>();
     height: 100%;
     object-fit: cover;
 
-    &--mobile {
-      min-width: 400px;
-    }
-
     &--desktop {
       display: none;
     }
