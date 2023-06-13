@@ -5,7 +5,8 @@ import Heading from "./Heading.vue";
 import LeadsForm from "./LeadsForm.vue";
 import VideoPlayer from "./VideoPlayer.vue";
 
-import BgDesktop from "../assets/hero-bg-desktop.webp";
+import BgGradient from "../assets/hero-gradient.svg";
+import BgLines from "../assets/hero-lines.svg";
 import BgMobile from "../assets/hero-bg-mobile.webp";
 import StarsIcon from "../icons/star.svg";
 </script>
@@ -14,11 +15,17 @@ import StarsIcon from "../icons/star.svg";
   <div class="hero">
     <div class="hero__bg">
       <picture>
-        <source media="(min-width: 768px)" :srcset="BgDesktop" />
-        <img :src="BgMobile" alt="" loading="lazy" />
+        <source media="(min-width: 768px)" :srcset="BgGradient" />
+        <img :src="BgMobile" alt="" />
       </picture>
-      <div class="hero__rocket" />
     </div>
+
+    <div class="hero__lines">
+      <img :src="BgLines" alt="" />
+    </div>
+
+    <div class="hero__rockets" />
+
     <Container>
       <div class="hero__inner">
         <Heading tag="h1" class="hero__title">
@@ -29,8 +36,8 @@ import StarsIcon from "../icons/star.svg";
                 :array="['generating', 'designing']"
                 :eraseSpeed="50"
                 :typeSpeed="100"
-                :delay="2000"
-                :start="2000"
+                :delay="1500"
+                :start="1500"
               ></vue-writer>
               <span class="hero__badge">
                 <img :src="StarsIcon" alt="" />
@@ -63,13 +70,50 @@ import StarsIcon from "../icons/star.svg";
   }
 }
 
-@keyframes typewriter-10-letter {
+@keyframes fadein {
   from {
-    width: 10ch;
+    opacity: 0;
   }
 
   to {
-    width: 0ch;
+    opacity: 1;
+  }
+}
+
+@keyframes lines {
+  from {
+    opacity: 0;
+    // transform: translateY(1rem) rotateX(25deg) scale(0.9);
+  }
+
+  to {
+    opacity: 0.33;
+    // transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+@keyframes rocket-to-bottom-right {
+  0% {
+    transform: skew(-27deg) translateY(-200px);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: skew(-27deg) translateY(600px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: skew(-27deg) translateY(600px);
+    opacity: 0;
   }
 }
 
@@ -78,18 +122,99 @@ import StarsIcon from "../icons/star.svg";
   padding: 7.5rem 0 0;
   width: 100%;
   overflow-x: clip;
+  animation: fadein 1s ease-in-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   &__bg {
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     z-index: -1;
     width: 100%;
     height: auto;
 
     @media (min-width: 768px) {
-      min-width: 1440px;
+      width: 133%;
+      min-width: 1600px;
+      top: -50vw;
+      left: auto;
+      right: -33%;
+      mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
+      -webkit-mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
+    }
+  }
+
+  &__rockets,
+  &__lines {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__lines {
+    mix-blend-mode: overlay;
+    -webkit-mix-blend-mode: overlay;
+    mask-image: radial-gradient(
+      50% 67.81% at 50% 32.19%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      50% 50% at 50% 50%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+
+    img {
+      opacity: 0;
+      animation: lines 1s 1s ease-in-out forwards;
+    }
+  }
+
+  &__rockets {
+    aspect-ratio: 1440 / 1095;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      border-radius: 2px;
+      background-blend-mode: overlay;
+      mix-blend-mode: normal;
+      filter: blur(0.5px);
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(72, 27, 151, 0) 0%, white 100%);
+    }
+
+    &::before {
+      top: 107px;
+    left: 645px;
+      transform: skew(-27deg) translateY(-200px);
+      animation: rocket-to-bottom-right 3s 3s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
     }
   }
 
