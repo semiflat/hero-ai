@@ -102,8 +102,12 @@ import StarsIcon from "../icons/star.svg";
     opacity: 1;
   }
 
-  18% {
+  15% {
     opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
   }
 
   50% {
@@ -207,7 +211,7 @@ import StarsIcon from "../icons/star.svg";
       filter: blur(0.5px);
       width: 1px;
       height: 80px;
-      background: linear-gradient(to bottom, rgba(72, 27, 151, 0) 0%, white 100%);
+      background: linear-gradient(23.44deg, #FFFFFF -0.1%, rgba(255, 255, 255, 0) 99.99%);
     }
 
     &::before {
