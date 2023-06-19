@@ -24,28 +24,27 @@ import StarsIcon from "../icons/star.svg";
       <img :src="BgLines" alt="" />
     </div>
 
-    <div class="hero__rockets" />
+    <div class="hero__rockets hero__rockets--left" />
+    <div class="hero__rockets hero__rockets--right" />
 
     <Container>
       <div class="hero__inner">
         <Heading tag="h1" class="hero__title">
           The future of
-          <div class="hero__highlight-placeholder">
-            <div class="hero__highlight">
-              <vue-writer
-                :array="['generating', 'designing']"
-                :eraseSpeed="50"
-                :typeSpeed="100"
-                :delay="1500"
-                :start="1500"
-              ></vue-writer>
-              <span class="hero__badge">
-                <img :src="StarsIcon" alt="" />
-                Hero AI
-              </span>
-            </div>
+          <div class="hero__highlight">
+            <vue-writer
+              :array="['generating', 'designing']"
+              :eraseSpeed="50"
+              :typeSpeed="100"
+              :delay="1500"
+              :start="1600"
+            ></vue-writer>
+            <span class="hero__badge">
+              <img :src="StarsIcon" alt="" />
+              Hero AI
+            </span>
           </div>
-
+          <br />
           beautiful websites is here.
         </Heading>
         <p class="hero__lead">
@@ -92,9 +91,14 @@ import StarsIcon from "../icons/star.svg";
   }
 }
 
-@keyframes rocket-to-bottom-right {
+$rocket-1-skew: -27deg;
+$rocket-2-skew: -12deg;
+$rocket-3-skew: 12.2deg;
+$rocket-4-skew: 33deg;
+
+@keyframes rocket-1 {
   0% {
-    transform: skew(-27deg) translateY(-200px);
+    transform: skew($rocket-1-skew) translateY(-500px);
     opacity: 0;
   }
 
@@ -111,12 +115,99 @@ import StarsIcon from "../icons/star.svg";
   }
 
   50% {
-    transform: skew(-27deg) translateY(600px);
+    transform: skew($rocket-1-skew) translateY(900px);
     opacity: 0;
   }
 
   100% {
-    transform: skew(-27deg) translateY(600px);
+    transform: skew($rocket-1-skew) translateY(900px);
+    opacity: 0;
+  }
+}
+
+@keyframes rocket-2 {
+  0% {
+    transform: skew($rocket-2-skew) translateY(-500px);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: skew($rocket-2-skew) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: skew($rocket-2-skew) translateY(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes rocket-3 {
+  0% {
+    transform: skew($rocket-3-skew) translateY(-300px);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: skew($rocket-3-skew) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: skew($rocket-3-skew) translateY(1000px);
+    opacity: 0;
+  }
+}
+
+@keyframes rocket-4 {
+  0% {
+    transform: skew($rocket-4-skew) translateY(-300px);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: skew($rocket-4-skew) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: skew($rocket-4-skew) translateY(1000px);
     opacity: 0;
   }
 }
@@ -127,100 +218,6 @@ import StarsIcon from "../icons/star.svg";
   width: 100%;
   overflow-x: clip;
   animation: fadein 1s ease-in-out;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  &__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: auto;
-
-    @media (min-width: 768px) {
-      width: 133%;
-      min-width: 1600px;
-      top: -50vw;
-      left: auto;
-      right: -33%;
-      mask-image: radial-gradient(
-        50% 50% at 50% 50%,
-        #d9d9d9 0%,
-        rgba(217, 217, 217, 0) 100%
-      );
-      -webkit-mask-image: radial-gradient(
-        50% 50% at 50% 50%,
-        #d9d9d9 0%,
-        rgba(217, 217, 217, 0) 100%
-      );
-    }
-  }
-
-  &__rockets,
-  &__lines {
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1440px;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  &__lines {
-    mix-blend-mode: overlay;
-    -webkit-mix-blend-mode: overlay;
-    mask-image: radial-gradient(
-      50% 67.81% at 50% 32.19%,
-      #d9d9d9 0%,
-      rgba(217, 217, 217, 0) 100%
-    );
-    -webkit-mask-image: radial-gradient(
-      50% 50% at 50% 50%,
-      #d9d9d9 0%,
-      rgba(217, 217, 217, 0) 100%
-    );
-
-    img {
-      opacity: 0;
-      animation: lines 1s 1s ease-in-out forwards;
-    }
-  }
-
-  &__rockets {
-    aspect-ratio: 1440 / 1095;
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      border-radius: 2px;
-      background-blend-mode: overlay;
-      mix-blend-mode: normal;
-      filter: blur(0.5px);
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(23.44deg, #FFFFFF -0.1%, rgba(255, 255, 255, 0) 99.99%);
-    }
-
-    &::before {
-      top: 107px;
-    left: 645px;
-      transform: skew(-27deg) translateY(-200px);
-      animation: rocket-to-bottom-right 3s 3s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
-    }
-  }
 
   &__inner {
     position: relative;
@@ -238,17 +235,8 @@ import StarsIcon from "../icons/star.svg";
     }
   }
 
-  &__highlight-placeholder {
-    position: relative;
-    display: inline-block;
-    width: 5.6em;
-    height: 1em;
-  }
-
   &__highlight {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     display: inline-block;
     padding: 0 0.1em;
     background: rgba(255, 255, 255, 0.3);
@@ -326,6 +314,124 @@ import StarsIcon from "../icons/star.svg";
   &:deep(.cursor) {
     display: inline-block;
     width: 1px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+
+    @media (min-width: 768px) {
+      width: 133%;
+      min-width: 1600px;
+      top: -50vw;
+      left: auto;
+      right: -33%;
+      mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
+      -webkit-mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
+    }
+  }
+
+  &__rockets,
+  &__lines {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__lines {
+    mix-blend-mode: overlay;
+    -webkit-mix-blend-mode: overlay;
+    mask-image: radial-gradient(
+      50% 67.81% at 50% 32.19%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      50% 50% at 50% 50%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+
+    img {
+      opacity: 0;
+      animation: lines 1s .75s ease-in-out forwards;
+    }
+  }
+
+  &__rockets {
+    aspect-ratio: 1440 / 1095;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      border-radius: 2px;
+      background-blend-mode: overlay;
+      mix-blend-mode: normal;
+      filter: blur(0.5px);
+      width: 1px;
+      height: 80px;
+      background: linear-gradient(
+        23.44deg,
+        #ffffff -0.1%,
+        rgba(255, 255, 255, 0) 99.99%
+      );
+    }
+
+    &--left {
+      &::before {
+        top: 107px;
+        left: 645px;
+        transform: skew($rocket-1-skew) translateY(-500px);
+        animation: rocket-1 5s 3s cubic-bezier(0.5, 1, 0.89, 1) forwards
+          infinite;
+      }
+
+      &::after {
+        top: 360px;
+        left: 631.5px;
+        transform: skew($rocket-2-skew) translateY(-500px);
+        animation: rocket-2 5s 4s cubic-bezier(0.5, 1, 0.89, 1) forwards
+          infinite;
+      }
+    }
+
+    &--right {
+      &::before {
+        top: 120px;
+        left: 756px;
+        transform: skew($rocket-3-skew) translateY(-500px);
+        animation: rocket-3 5s 2s cubic-bezier(0.5, 1, 0.89, 1) forwards
+          infinite;
+      }
+
+      &::after {
+        top: 120px;
+        left: 825px;
+        transform: skew($rocket-4-skew) translateY(-500px);
+        animation: rocket-4 5s 5s cubic-bezier(0.5, 1, 0.89, 1)
+          forwards infinite;
+      }
+    }
   }
 }
 </style>
