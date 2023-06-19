@@ -79,6 +79,19 @@ import StarsIcon from "../icons/star.svg";
   }
 }
 
+@keyframes video {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 @keyframes lines {
   from {
     opacity: 0;
@@ -144,12 +157,12 @@ $rocket-4-skew: 33deg;
   }
 
   50% {
-    transform: skew($rocket-2-skew) translateY(1000px);
+    transform: skew($rocket-2-skew) translateY(800px);
     opacity: 0;
   }
 
   100% {
-    transform: skew($rocket-2-skew) translateY(1000px);
+    transform: skew($rocket-2-skew) translateY(800px);
     opacity: 0;
   }
 }
@@ -290,6 +303,12 @@ $rocket-4-skew: 33deg;
     width: 100%;
     max-width: 33rem;
     margin-bottom: 4rem;
+  }
+
+  &__video {
+    transform: translateY(1rem);
+    opacity: 0;
+    animation: video 1s .5s forwards;
   }
 
   @media (min-width: 768px) {
