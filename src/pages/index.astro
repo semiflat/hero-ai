@@ -10,9 +10,9 @@ import FeaturesSection from "../sections/home/FeaturesSection.vue";
 
 <Layout title="Hero Landing Page">
 	<main>
-		<Hero client:visible />
+		<Hero client:load />
 		<FeaturesSection client:visible />
-		<BenefitsSection />
-		<CTASection />
+		<BenefitsSection client:visible />
+		<CTASection client:visible />
 	</main>
 </Layout>
