@@ -34,6 +34,7 @@ $border-width: 1px;
   box-shadow: inset 0px 4px 6px rgba(255, 255, 255, 0.12);
   cursor: pointer;
   transition: 0.3s ease;
+  text-decoration: none;
 
   @media (hover: hover) {
     &:hover {

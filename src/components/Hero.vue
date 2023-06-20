@@ -6,8 +6,8 @@ import LeadsForm from "./LeadsForm.vue";
 import VideoPlayer from "./VideoPlayer.vue";
 
 import BgGradient from "../assets/hero-gradient.svg";
+import BgGradientMobile from "../assets/hero-gradient-mobile.svg";
 import BgLines from "../assets/hero-lines.svg";
-import BgMobile from "../assets/hero-bg-mobile.webp";
 import StarsIcon from "../icons/star.svg";
 </script>
 
@@ -16,16 +16,17 @@ import StarsIcon from "../icons/star.svg";
     <div class="hero__bg">
       <picture>
         <source media="(min-width: 768px)" :srcset="BgGradient" />
-        <img :src="BgMobile" alt="" />
+        <img :src="BgGradientMobile" alt="" />
       </picture>
     </div>
 
     <div class="hero__lines">
       <img :src="BgLines" alt="" />
-    </div>
 
-    <div class="hero__rockets hero__rockets--left" />
-    <div class="hero__rockets hero__rockets--right" />
+      <div class="hero__rockets hero__rockets--left" />
+      <div class="hero__rockets hero__rockets--right" />
+      <div class="hero__rockets hero__rockets--middle" />
+    </div>
 
     <Container>
       <div class="hero__inner">
@@ -107,6 +108,7 @@ $rocket-1-skew: -27deg;
 $rocket-2-skew: -12deg;
 $rocket-3-skew: 12.2deg;
 $rocket-4-skew: 33deg;
+$rocket-5-skew: -4deg;
 
 @keyframes rocket-1 {
   0% {
@@ -123,17 +125,17 @@ $rocket-4-skew: 33deg;
   }
 
   40% {
-    opacity: 0;
+    opacity: 1;
   }
 
   50% {
     transform: skew($rocket-1-skew) translateY(900px);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     transform: skew($rocket-1-skew) translateY(900px);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -152,17 +154,17 @@ $rocket-4-skew: 33deg;
   }
 
   30% {
-    opacity: 0;
+    opacity: 1;
   }
 
   50% {
     transform: skew($rocket-2-skew) translateY(800px);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     transform: skew($rocket-2-skew) translateY(800px);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -181,17 +183,17 @@ $rocket-4-skew: 33deg;
   }
 
   20% {
-    opacity: 0;
+    opacity: 1;
   }
 
   50% {
     transform: skew($rocket-3-skew) translateY(1000px);
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
     transform: skew($rocket-3-skew) translateY(1000px);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -224,6 +226,35 @@ $rocket-4-skew: 33deg;
   }
 }
 
+@keyframes rocket-5 {
+  0% {
+    transform: skew($rocket-5-skew) translateY(-200px);
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: skew($rocket-5-skew) translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: skew($rocket-5-skew) translateY(1000px);
+    opacity: 0;
+  }
+}
+
 .hero {
   position: relative;
   padding: 7.5rem 0 0;
@@ -243,7 +274,7 @@ $rocket-4-skew: 33deg;
 
   &__title {
     @media (max-width: 767px) {
-      font-size: 6.5vw;
+      font-size: 6.8vw;
     }
   }
 
@@ -338,10 +369,11 @@ $rocket-4-skew: 33deg;
 
   &__bg {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -30%;
+    left: -40%;
     z-index: -1;
-    width: 100%;
+    width: 200%;
+    min-width: 664px;
     height: auto;
 
     @media (min-width: 768px) {
@@ -350,8 +382,49 @@ $rocket-4-skew: 33deg;
       top: -50vw;
       left: auto;
       right: -33%;
+      -webkit-mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
       mask-image: radial-gradient(
         50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
+    }
+  }
+
+  &__lines {
+    position: absolute;
+    top: -33%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+
+    @media (min-width: 768px) {
+      top: -10%;
+      width: 1440px;
+    }
+  }
+
+  &__lines {
+    mix-blend-mode: overlay;
+    -webkit-mix-blend-mode: overlay;
+    mask-image: radial-gradient(
+      100% 100% at 50.13% 0%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      100% 100% at 50.13% 0%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+
+    @media (min-width: 768px) {
+      mask-image: radial-gradient(
+        50% 67.81% at 50% 32.19%,
         #d9d9d9 0%,
         rgba(217, 217, 217, 0) 100%
       );
@@ -361,34 +434,6 @@ $rocket-4-skew: 33deg;
         rgba(217, 217, 217, 0) 100%
       );
     }
-  }
-
-  &__rockets,
-  &__lines {
-    position: absolute;
-    top: -10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1440px;
-
-    @media (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  &__lines {
-    mix-blend-mode: overlay;
-    -webkit-mix-blend-mode: overlay;
-    mask-image: radial-gradient(
-      50% 67.81% at 50% 32.19%,
-      #d9d9d9 0%,
-      rgba(217, 217, 217, 0) 100%
-    );
-    -webkit-mask-image: radial-gradient(
-      50% 50% at 50% 50%,
-      #d9d9d9 0%,
-      rgba(217, 217, 217, 0) 100%
-    );
 
     img {
       opacity: 0;
@@ -397,6 +442,9 @@ $rocket-4-skew: 33deg;
   }
 
   &__rockets {
+    position: absolute;
+    top: 0;
+    left: 0;
     aspect-ratio: 1440 / 1095;
 
     &::before,
@@ -422,7 +470,7 @@ $rocket-4-skew: 33deg;
         top: 107px;
         left: 645px;
         transform: skew($rocket-1-skew) translateY(-500px);
-        animation: rocket-1 5s 3s cubic-bezier(0.5, 1, 0.89, 1) forwards
+        animation: rocket-1 4.5s 2s cubic-bezier(0.5, 1, 0.89, 1) forwards
           infinite;
       }
 
@@ -430,7 +478,7 @@ $rocket-4-skew: 33deg;
         top: 360px;
         left: 631.5px;
         transform: skew($rocket-2-skew) translateY(-500px);
-        animation: rocket-2 5s 4s cubic-bezier(0.5, 1, 0.89, 1) forwards
+        animation: rocket-2 4.8s 3s cubic-bezier(0.5, 1, 0.89, 1) forwards
           infinite;
       }
     }
@@ -440,7 +488,7 @@ $rocket-4-skew: 33deg;
         top: 120px;
         left: 756px;
         transform: skew($rocket-3-skew) translateY(-500px);
-        animation: rocket-3 5s 2s cubic-bezier(0.5, 1, 0.89, 1) forwards
+        animation: rocket-3 4.8s 1s cubic-bezier(0.5, 1, 0.89, 1) forwards
           infinite;
       }
 
@@ -448,8 +496,21 @@ $rocket-4-skew: 33deg;
         top: 120px;
         left: 825px;
         transform: skew($rocket-4-skew) translateY(-500px);
-        animation: rocket-4 5s 5s cubic-bezier(0.5, 1, 0.89, 1) forwards
+        animation: rocket-4 4.5s 3.5s cubic-bezier(0.5, 1, 0.89, 1) forwards
           infinite;
+      }
+    }
+
+    &--middle {
+      &::before {
+        top: 120px;
+        left: 708px;
+        transform: skew($rocket-5-skew) translateY(-200px);
+        animation: rocket-5 4s 1.5s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
+      }
+
+      &::after {
+        content: none;
       }
     }
   }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Poster from "../assets/video-poster.webp";
+import PosterMobile from "../assets/video-poster-mobile.webp";
 import Teaser from "../assets/video-teaser.mp4";
 import PlayIcon from "../assets/play-icon.svg";
 
@@ -16,21 +17,27 @@ const playVideo = () => {
 <template>
   <div class="video-player">
     <div v-if="showPoster" class="video-player__poster" @click="playVideo">
-      <img
+      <picture>
+        <source media="(min-width: 768px)" :srcset="Poster" />
+        <img
         class="video-player__poster-image"
-        :src="Poster"
+        :src="PosterMobile"
         loading="lazy"
         alt=""
       />
+      </picture>
+    
       <button class="video-player__poster-button" aria-label="Play the video">
-        <img
-          class="video-player__play-icon"
-          :src="PlayIcon"
-          alt=""
-        />
+        <img class="video-player__play-icon" :src="PlayIcon" alt="" />
       </button>
     </div>
-    <video class="video-player__player" controls width="250" ref="video" :poster="Poster">
+    <video
+      class="video-player__player"
+      controls
+      width="250"
+      ref="video"
+      :poster="Poster"
+    >
       <source :src="Teaser" type="video/mp4" />
       Download the <a :href="Teaser">video</a>
     </video>
@@ -43,9 +50,13 @@ const playVideo = () => {
 
   position: relative;
   width: 100%;
-  border-radius: 24px;
+  border-radius: .5rem;
   overflow: hidden;
   box-shadow: 0px 0px 80px 20px rgba(0, 0, 0, 0.64);
+
+  @media (min-width: 768px) {
+    border-radius: 0.75rem;
+  }
 
   &__poster {
     position: absolute;

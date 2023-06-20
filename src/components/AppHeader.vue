@@ -10,7 +10,7 @@ import Container from "./Container.vue";
     <Container>
       <div class="header__inner">
         <img class="header__logo" :src="Logotype" alt="Hero Logotype" />
-        <Button>Join waitlist</Button>
+        <Button href="#form">Join waitlist</Button>
       </div>
     </Container>
   </header>

@@ -14,13 +14,15 @@ const props = defineProps<Banner>();
 
 <template>
   <div class="banner">
-    <picture>
-      <source media="(min-width: 768px)" :srcset="BgDesktop" />
-      <img class="banner__bg" :src="BgMobile" alt="" loading="lazy" />
-    </picture>
+    <div class="banner__bg">
+      <picture>
+        <source media="(min-width: 768px)" :srcset="BgDesktop" />
+        <img :src="BgMobile" alt="" loading="lazy" />
+      </picture>
 
-    <div class="banner__rockets banner__rockets--left" />
-    <div class="banner__rockets banner__rockets--right" />
+      <div class="banner__rockets banner__rockets--left" />
+      <div class="banner__rockets banner__rockets--right" />
+    </div>
 
     <div class="banner__text-wrapper">
       <Heading size="md" tag="h2" class="banner__title">
@@ -97,7 +99,6 @@ $rocket-3-skew: 4deg;
   }
 }
 
-
 @keyframes rocket-3 {
   0% {
     transform: skew($rocket-3-skew) translateY(-100px);
@@ -147,8 +148,14 @@ $rocket-3-skew: 4deg;
     right: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top right;
+
+    picture,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top right;
+    }
   }
 
   &__rockets {
@@ -179,7 +186,8 @@ $rocket-3-skew: 4deg;
         top: 0;
         right: 346px;
         transform: skew($rocket-1-skew) translateY(-100px);
-        animation: rocket-1 3.2s .9s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
+        animation: rocket-1 3.2s 0.9s cubic-bezier(0.5, 1, 0.89, 1) forwards
+          infinite;
       }
 
       &::after {
@@ -195,7 +203,8 @@ $rocket-3-skew: 4deg;
         top: 0;
         right: 47px;
         transform: skew($rocket-3-skew) translateY(-100px);
-        animation: rocket-3 2.8s 1.5s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
+        animation: rocket-3 2.8s 1.5s cubic-bezier(0.5, 1, 0.89, 1) forwards
+          infinite;
       }
 
       &::after {
