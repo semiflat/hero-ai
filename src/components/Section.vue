@@ -27,17 +27,19 @@ const toggleTexts = () => {
   <section class="section">
     <Container>
       <div v-if="props.title && props.lead" class="section__header">
-        <Button
-          class="section__button"
-          primary
-          minor
-          has-icon
-          tag="button"
-          type="button"
-          @click="toggleTexts"
-        >
-          Rewrite with Hero AI
-        </Button>
+        <div class="section__button" v-observe>
+          <Button
+            primary
+            minor
+            has-icon
+            tag="button"
+            type="button"
+            @click="toggleTexts"
+          >
+            Rewrite with Hero AI
+          </Button>
+        </div>
+
         <Heading size="lg" tag="h2" class="section__title" v-observe>
           {{ props.title[activeIndex] }}
         </Heading>
@@ -87,6 +89,7 @@ const toggleTexts = () => {
     opacity: 0.72;
   }
 
+  &__button,
   &__title,
   &__lead,
   &__body {
