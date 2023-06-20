@@ -67,7 +67,7 @@ const props = defineProps<Section>();
     opacity: 0;
 
     &.enter {
-      animation: fadein 1s .1s ease forwards;
+      animation: fadein 1s ease forwards;
     }
   }
 }

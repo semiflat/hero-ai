@@ -272,19 +272,19 @@ $rocket-4-skew: 33deg;
   &__badge {
     position: absolute;
     top: -2rem;
-    left: 100%;
+    right: 0;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    width: 5.5rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.5rem 0.5rem 0.5rem 0;
+    gap: 0.5em;
+    width: 6.3em;
+    padding: 0.4em 0.6em;
+    border-radius: 0.5em 0.5em 0 0.5em;
     background: linear-gradient(0deg, #ffffff, #ffffff),
       linear-gradient(180deg, #ffffff 0%, rgba(225, 225, 225, 0.88) 100%);
     color: #171717;
     -webkit-text-fill-color: #171717;
     -moz-text-fill-color: #171717;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1.2;
     white-space: nowrap;
 
@@ -293,8 +293,10 @@ $rocket-4-skew: 33deg;
       height: 0.75rem;
     }
 
-    @media (max-width: 767px) {
-      display: none;
+    @media (min-width: 768px) {
+      left: 100%;
+      border-radius: 0.5em 0.5em 0.5em 0;
+      font-size: 0.875rem;
     }
   }
 
