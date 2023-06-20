@@ -85,6 +85,7 @@ import StarsIcon from "../icons/star.svg";
     transform: translateY(0);
   }
 }
+
 .hero {
   position: relative;
   padding: 7.5rem 0 0;

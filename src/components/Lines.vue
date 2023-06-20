@@ -4,7 +4,7 @@ import BgLines from "../assets/hero-lines.svg";
 
 <template>
   <div class="lines">
-    <img :src="BgLines" alt="" />
+    <img class="lines__image" :src="BgLines" alt="" />
 
     <div class="lines__rockets lines__rockets--left" />
     <div class="lines__rockets lines__rockets--right" />
@@ -179,8 +179,7 @@ $rocket-5-skew: -4deg;
   mix-blend-mode: overlay;
   -webkit-mix-blend-mode: overlay;
 
-
-  img {
+  &__image {
     opacity: 0;
     animation: lines 1s 0.75s ease-in-out forwards;
   }

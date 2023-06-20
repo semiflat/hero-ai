@@ -117,5 +117,10 @@ const props = defineProps<Banner>();
       margin-top: 3rem;
     }
   }
+
+  &:deep(.lines__image) {
+    animation: none;
+    opacity: .33;
+  }
 }
 </style>
