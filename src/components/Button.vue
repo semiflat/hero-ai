@@ -1,16 +1,28 @@
 <script setup lang="ts">
+import StarsIcon from "../icons/star-gradient.svg";
+
 export interface Button {
+  hasIcon?: boolean;
+  minor?: boolean;
   primary?: boolean;
+  tag?: string;
 }
 const props = defineProps<Button>();
 </script>
 
 <template>
   <component
-    is="a"
+    :is="tag || 'a'"
     class="button"
-    :class="{ 'button--primary': props.primary }"
+    :class="{ 'button--primary': props.primary, 'button--minor': props.minor }"
   >
+    <img
+      v-if="props.hasIcon"
+      class="button__icon"
+      :src="StarsIcon"
+      alt=""
+      loading="lazy"
+    />
     <span class="button__text"><slot></slot></span>
   </component>
 </template>
@@ -20,9 +32,10 @@ $border-width: 1px;
 .button {
   $block: &;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: .5rem;
   height: 2.5rem;
   padding: 0 1rem;
   border-radius: 0.666rem;
@@ -35,6 +48,12 @@ $border-width: 1px;
   cursor: pointer;
   transition: 0.3s ease;
   text-decoration: none;
+
+  &__icon {
+    display: block;
+    width: 1rem;
+    aspect-ratio: 1 / 1;
+  }
 
   @media (hover: hover) {
     &:hover {
@@ -92,6 +111,10 @@ $border-width: 1px;
         transition: 0.3s ease;
       }
     }
+  }
+
+  &--minor {
+    height: 1.875rem;
   }
 }
 </style>

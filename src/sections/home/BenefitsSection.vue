@@ -47,13 +47,22 @@ const cards = [
       "You get full control over everything - in case unlimited design and copy revisions just don’t cut it.",
   },
 ];
+
+const title = [
+  "What you can expect.",
+  "Another title"
+];
+const lead = [
+  "Hero combines the power of a designer, web developer and a copywriter delivering top quality in seconds.", 
+  "Another description"
+];
 </script>
 
 <template>
   <Section
     class="benefits-section"
-    title="What you can expect."
-    lead="Hero combines the power of a designer, web developer and a copywriter delivering top quality in seconds."
+    :title="title"
+    :lead="lead"
   >
     <ul class="benefits-section__list">
       <li v-for="card in cards">

@@ -3,6 +3,7 @@ import Banner from "../../components/Banner.vue";
 import Section from "../../components/Section.vue";
 </script>
 
+
 <template>
   <Section>
     <Banner

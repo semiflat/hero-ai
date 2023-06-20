@@ -1,26 +1,48 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import Button from "./Button.vue";
 import Container from "./Container.vue";
 import Heading from "./Heading.vue";
 
 import { vObserve } from "../directives/observe.js";
 
 export interface Section {
-  title?: string;
-  lead?: string;
+  title?: string[];
+  lead?: string[];
 }
 
 const props = defineProps<Section>();
+
+const activeIndex = ref(0);
+
+const toggleTexts = () => {
+  const currentIndex = activeIndex.value;
+  const optionsLength = props.title.length - 1;
+
+  activeIndex.value = optionsLength > currentIndex ? currentIndex + 1 : 0;
+};
 </script>
 
 <template>
   <section class="section">
     <Container>
-      <div v-if="props.title || props.lead" class="section__header">
+      <div v-if="props.title && props.lead" class="section__header">
+        <Button
+          class="section__button"
+          primary
+          minor
+          has-icon
+          tag="button"
+          type="button"
+          @click="toggleTexts"
+        >
+          Rewrite with Hero AI
+        </Button>
         <Heading size="lg" tag="h2" class="section__title" v-observe>
-          {{ props.title }}
+          {{ props.title[activeIndex] }}
         </Heading>
         <p class="section__lead" v-observe>
-          {{ props.lead }}
+          {{ props.lead[activeIndex] }}
         </p>
       </div>
       <div class="section__body" v-observe>
@@ -41,6 +63,10 @@ const props = defineProps<Section>();
 
   @media (min-width: 768px) {
     padding: 10rem 0 0;
+  }
+
+  &__button {
+    margin: 0 auto 1rem;
   }
 
   &__header {
