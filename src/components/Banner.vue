@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import Heading from "./Heading.vue";
 import LeadsForm from "./LeadsForm.vue";
+import Lines from "./Lines.vue";
 
-import BgDesktop from "../assets/cta-bg-desktop.webp";
-import BgMobile from "../assets/cta-bg-mobile.webp";
+import BgDesktop from "../assets/cta-gradient-desktop.svg";
+import BgMobile from "../assets/cta-gradient-mobile.svg";
 
 export interface Banner {
   title: string;
@@ -20,8 +21,7 @@ const props = defineProps<Banner>();
         <img :src="BgMobile" alt="" loading="lazy" />
       </picture>
 
-      <div class="banner__rockets banner__rockets--left" />
-      <div class="banner__rockets banner__rockets--right" />
+      <Lines class="banner__lines" />
     </div>
 
     <div class="banner__text-wrapper">
@@ -37,96 +37,6 @@ const props = defineProps<Banner>();
 </template>
 
 <style lang="scss" scoped>
-$rocket-1-skew: -33.3deg;
-$rocket-2-skew: -12.2deg;
-$rocket-3-skew: 4deg;
-
-@keyframes rocket-1 {
-  0% {
-    transform: skew($rocket-1-skew) translateY(-100px);
-    opacity: 0;
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  40% {
-    opacity: 0;
-  }
-
-  50% {
-    transform: skew($rocket-1-skew) translateY(500px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: skew($rocket-1-skew) translateY(500px);
-    opacity: 0;
-  }
-}
-
-@keyframes rocket-2 {
-  0% {
-    transform: skew($rocket-2-skew) translateY(-100px);
-    opacity: 0;
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
-  50% {
-    transform: skew($rocket-2-skew) translateY(500px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: skew($rocket-2-skew) translateY(500px);
-    opacity: 0;
-  }
-}
-
-@keyframes rocket-3 {
-  0% {
-    transform: skew($rocket-3-skew) translateY(-100px);
-    opacity: 0;
-  }
-
-  5% {
-    opacity: 1;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  30% {
-    opacity: 0;
-  }
-
-  50% {
-    transform: skew($rocket-3-skew) translateY(500px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: skew($rocket-3-skew) translateY(500px);
-    opacity: 0;
-  }
-}
 .banner {
   position: relative;
   padding: 2.5rem 2rem;
@@ -141,8 +51,7 @@ $rocket-3-skew: 4deg;
     border-radius: 2rem;
   }
 
-  &__bg,
-  &__rockets {
+  &__bg {
     position: absolute;
     top: 0;
     right: 0;
@@ -158,58 +67,35 @@ $rocket-3-skew: 4deg;
     }
   }
 
-  &__rockets {
-    @media (max-width: 767.5px) {
-      display: none;
-    }
+  &__lines {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    mask-image: radial-gradient(
+      100% 100% at 50.13% 0%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      100% 100% at 50.13% 0%,
+      #d9d9d9 0%,
+      rgba(217, 217, 217, 0) 100%
+    );
 
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      border-radius: 2px;
-      background-blend-mode: overlay;
-      mix-blend-mode: normal;
-      filter: blur(0.5px);
-      width: 1px;
-      height: 80px;
-      background: linear-gradient(
-        23.44deg,
-        #ffffff -0.1%,
-        rgba(255, 255, 255, 0) 99.99%
+    @media (min-width: 768px) {
+      left: 28%;
+      transform: translateY(-34%);
+      mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
       );
-    }
-
-    &--left {
-      &::before {
-        top: 0;
-        right: 346px;
-        transform: skew($rocket-1-skew) translateY(-100px);
-        animation: rocket-1 3.2s 0.9s cubic-bezier(0.5, 1, 0.89, 1) forwards
-          infinite;
-      }
-
-      &::after {
-        top: 0;
-        right: 167px;
-        transform: skew($rocket-2-skew) translateY(-100px);
-        animation: rocket-2 3s cubic-bezier(0.5, 1, 0.89, 1) forwards infinite;
-      }
-    }
-
-    &--right {
-      &::before {
-        top: 0;
-        right: 47px;
-        transform: skew($rocket-3-skew) translateY(-100px);
-        animation: rocket-3 2.8s 1.5s cubic-bezier(0.5, 1, 0.89, 1) forwards
-          infinite;
-      }
-
-      &::after {
-        content: none;
-      }
+      -webkit-mask-image: radial-gradient(
+        50% 50% at 50% 50%,
+        #d9d9d9 0%,
+        rgba(217, 217, 217, 0) 100%
+      );
     }
   }
 
@@ -225,7 +111,11 @@ $rocket-3-skew: 4deg;
   }
 
   &__form {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
+
+    @media (min-width: 768px) {
+      margin-top: 3rem;
+    }
   }
 }
 </style>
