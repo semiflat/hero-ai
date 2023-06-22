@@ -19,7 +19,7 @@ const activeIndex = ref(0);
 const isTitleTyping = ref(false);
 const isDescriptionTyping = ref(false);
 
-const TYPING_SPEED = 100;
+const TYPING_SPEED = 50;
 
 const toggleTexts = () => {
   const currentIndex = activeIndex.value;

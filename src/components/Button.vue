@@ -104,7 +104,7 @@ $border-width: 1px;
       opacity: 0.5;
 
       &::before {
-        content: none;
+       opacity: 0;
       }
 
       #{$block} {
