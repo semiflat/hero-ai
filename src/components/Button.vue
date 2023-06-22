@@ -35,7 +35,7 @@ $border-width: 1px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
   height: 2.5rem;
   padding: 0 1rem;
   border-radius: 0.666rem;
@@ -95,6 +95,29 @@ $border-width: 1px;
           &__text {
             background-position: right center;
           }
+        }
+      }
+    }
+
+    &[disabled] {
+      pointer-events: none;
+      opacity: 0.5;
+
+      &::before {
+        content: none;
+      }
+
+      #{$block} {
+        &__text {
+          background: rgba(255, 255, 255, 0.5);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+
+        &__icon {
+          filter: grayscale(1);
         }
       }
     }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import VueWriter from "vue-writer";
+
 import Container from "./Container.vue";
 import Heading from "./Heading.vue";
 import LeadsForm from "./LeadsForm.vue";

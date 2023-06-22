@@ -38,7 +38,7 @@ const props = defineProps<Heading>();
   line-height: 1.2;
 
   &--lg {
-    max-width: 20ch;
+    max-width: 22ch;
     font-size: 1.75rem;
 
     @media (min-width: 768px) {

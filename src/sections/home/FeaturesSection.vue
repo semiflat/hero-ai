@@ -31,13 +31,27 @@ const cards = [
 
 const title = [
   "This is not another bulky website builder.",
-  "Another title",
-  "Lorem ipsum dolor amet"
+  "Redefining Website Building for SaaS Companies.",
+  "Unleash Hero's Persuasive Power for SaaS Websites.",
+  "Simplicity Meets Sophistication: Hero, the AI Website Generator for SaaS.",
+  "Hero, the Revolutionary AI Website Generator for SaaS.",
+  "Craft Digital Marvels: Unleash the Power of Your SaaS Website.",
+  "Experience the Power of Advanced Website Generation for SaaS.",
+  "Discover the Ultimate AI Solution for SaaS Websites!",
+  "Innovation and Intuition Combined: Redefine the Very Essence of Your SaaS Website!",
+  "Hero: Crafting Digital Marvels for SaaS Companies.",
 ];
 const lead = [
   "Website builders usually make you choose between high quality, low effort or uniqueness. Hero does not.",
-  "Another description",
-  "Consider building an array that includes the range except for the numbers in the array"
+  "Unleashing Possibilities: Hero Shatters the Barrier Between Quality, Effort, and Uniqueness.",
+  "No More Sacrifices: Hero Empowers You to Achieve Unprecedented Quality, Effortlessness, and Uniqueness.",
+  "Unleash Your Vision: Hero Redefines the Paradigm of Quality, Effort, and Uniqueness.",
+  "Uncompromising Excellence: Hero Pioneers the Trifecta of Quality, Effort, and Uniqueness.",
+  "No More Trade-offs: Hero Empowers You with High Quality, Low Effort, and Unmatched Uniqueness.",
+  "Breaking the Mold: Hero Transcends the Trade-off Between Quality, Effort, and Uniqueness.",
+  "Unleash the Triumvirate: Hero Achieves High Quality, Low Effort, and Unparalleled Uniqueness.",
+  "Defying Conventional Limits: Hero Offers the Perfect Blend of Quality, Effortlessness, and Uniqueness.",
+  "Uncompromising Excellence: Hero Pioneers the Trifecta of Quality, Effort, and Uniqueness.",
 ];
 </script>
 
