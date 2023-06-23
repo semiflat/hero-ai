@@ -50,11 +50,27 @@ const cards = [
 
 const title = [
   "What you can expect.",
-  "Another title"
+  "Discover an Amazing Array of Possibilities.",
+  "Experience Unforgettable Features in Action.",
+  "Unlock Boundless Potential and Exciting Capabilities.",
+  "Unleash the Power of Remarkable Performance.",
+  "Embark on an Exciting Journey of Innovation.",
+  "Discover an Awesome Range of Possibilities!",
+  "Here’s what’s in store",
+  "Get ready to be blown away",
+  "A new way to create websites is coming",
 ];
 const lead = [
-  "Hero combines the power of a designer, web developer and a copywriter delivering top quality in seconds.", 
-  "Another description"
+  "Where the Art of Design, Web Development, and Copywriting Converge, Delivering Unparalleled Quality in an Instant", 
+  "Experience the Triumph of Expertise: Uniting Design, Development, and Copywriting for Instant Top-Quality Delivery.",
+  "Unleash a Fusion of Design, Development, and Copywriting Mastery, Delivering Top Quality in Seconds.",
+  "A Symphony of Brilliance: Merging Design, Web Development, and Copywriting for Lightning-Fast Top Quality.",
+  "The Triple Threat: A Symphony of Excellence, Generating Unmatched Quality in Seconds.",
+  "Experience the Magic: Delivering Supreme Quality at Lightning Speed.",
+  "Blending Design, Web Development, and Copywriting Expertise for Instant, Impeccable Quality.",
+  "Experience the Best of Design, Development, and Copywriting: Instant Top-Quality Delivery.",
+  "Seamlessly Combine Design, Web Development, and Copywriting for Lightning-Fast Top Quality.",
+  "The Winning Trio: Excellence in Design, Web Development, and Copywriting for Unmatched Quality.",
 ];
 </script>
 

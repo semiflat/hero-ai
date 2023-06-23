@@ -17,9 +17,9 @@ const props = defineProps<Section>();
 
 const activeIndex = ref(0);
 const isTitleTyping = ref(false);
-const isDescriptionTyping = ref(false);
 
 const TYPING_SPEED = 50;
+const TYPING_OFFSET = 1000;
 
 const toggleTexts = () => {
   const currentIndex = activeIndex.value;
@@ -28,18 +28,12 @@ const toggleTexts = () => {
   activeIndex.value = optionsLength > currentIndex ? currentIndex + 1 : 0;
   isTitleTyping.value = true;
 
-  const titleTypingTime = props.title[activeIndex.value].length * TYPING_SPEED + 1000;
-  const descriptionTypingTime = props.lead[activeIndex.value].length * TYPING_SPEED + 1000;
+  const titleTypingTime =
+    props.title[activeIndex.value].length * TYPING_SPEED + TYPING_OFFSET;
 
   setTimeout(() => {
     isTitleTyping.value = false;
-    isDescriptionTyping.value = true;
-  }, titleTypingTime)
-  
-  setTimeout(() => {
-    isDescriptionTyping.value = false;
-  }, titleTypingTime + descriptionTypingTime)
-
+  }, titleTypingTime);
 };
 </script>
 
@@ -55,7 +49,7 @@ const toggleTexts = () => {
             tag="button"
             type="button"
             @click="toggleTexts"
-            :disabled="isDescriptionTyping || isTitleTyping"
+            :disabled="isTitleTyping"
           >
             Rewrite with Hero AI
           </Button>
@@ -70,14 +64,13 @@ const toggleTexts = () => {
           ></vue-writer>
           <template v-else>{{ props.title[activeIndex] }}</template>
         </Heading>
+
         <p class="section__lead" v-observe>
-          <vue-writer
-            v-if="isDescriptionTyping"
-            :array="[props.lead[activeIndex]]"
-            :typeSpeed="TYPING_SPEED"
-            iterations="1"
-          ></vue-writer>
-          <template v-if="!(isDescriptionTyping || isTitleTyping)">{{ props.lead[activeIndex] }}</template>
+          <Transition name="fade">
+            <span v-if="!isTitleTyping">{{
+              props.lead[activeIndex]
+            }}</span>
+          </Transition>
         </p>
       </div>
       <div class="section__body" v-observe>
@@ -87,12 +80,13 @@ const toggleTexts = () => {
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @keyframes fadein {
   to {
     opacity: 1;
   }
 }
+
 .section {
   padding: 5rem 0 0;
 
@@ -115,6 +109,35 @@ const toggleTexts = () => {
     @media (min-width: 768px) {
       margin-bottom: 5rem;
     }
+
+    &:deep(.cursor) {
+      position: relative;
+      display: inline-block;
+      width: 2px;
+      margin-left: 2px;
+      background: #13f1ff;
+
+      &::after {
+        content: "Hero AI";
+        position: absolute;
+        top: -2rem;
+        left: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        width: 4.5em;
+        padding: 0.4em 0.6em;
+        border-radius: 0.5em 0.5em 0.5em 0em;
+        background-color: white;
+        color: #171717;
+        -webkit-text-fill-color: #171717;
+        -moz-text-fill-color: #171717;
+        font-size: 0.75rem;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+    }
   }
 
   &__lead {
@@ -132,6 +155,44 @@ const toggleTexts = () => {
     &.enter {
       animation: fadein 1s ease forwards;
     }
+  }
+
+  &__highlight {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: #13f1ff;
+      animation: 1s blink step-end infinite;
+    }
+  }
+
+  &__badge {
+    img {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      left: 100%;
+      border-radius: 0.5em 0.5em 0.5em 0;
+      font-size: 0.875rem;
+    }
+  }
+
+  .fade-enter-active {
+    transition: 0.4s ease-in-out;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+    transform: translateY(.5rem);
   }
 }
 </style>

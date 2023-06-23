@@ -80,7 +80,7 @@ $border-width: 1px;
       background-position: center center;
       background: linear-gradient(264.69deg, #13f1ff 0%, #9e7cff 100%);
       background-size: 150%;
-      transition: 0.3s ease;
+      transition: background-position 0.3s ease;
     }
 
     @media (hover: hover) {
@@ -101,10 +101,9 @@ $border-width: 1px;
 
     &[disabled] {
       pointer-events: none;
-      opacity: 0.5;
 
       &::before {
-       opacity: 0;
+        background: rgba(255, 255, 255, 0.5);
       }
 
       #{$block} {
@@ -131,7 +130,6 @@ $border-width: 1px;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-fill-color: transparent;
-        transition: 0.3s ease;
       }
     }
   }
