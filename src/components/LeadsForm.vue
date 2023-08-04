@@ -48,14 +48,14 @@ const state = reactive({
       v-model="state.email"
     />
 
-    <!--<div id="mce-responses" class="clearfalse">
+    <div id="mce-responses" class="clearfalse">
       <div class="response" id="mce-error-response" style="display: none"></div>
       <div
         class="response"
         id="mce-success-response"
         style="display: none"
       ></div>
-    </div>-->
+    </div>
 
     <Button class="leads-form__button" tag="button" type="submit" primary>
       Join waitlist

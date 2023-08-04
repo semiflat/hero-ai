@@ -9,13 +9,11 @@ import FeaturesSection from "../sections/home/FeaturesSection.vue";
 ---
 
 <Layout
-	title="Meet Hero - the AI website generator"
-	description="Generate beautiful websites with a single prompt in seconds. No writing code, no bulky design builders."
+  title="Meet Hero - the AI website generator"
+  description="Generate beautiful websites with a single prompt in seconds. No writing code, no bulky design builders."
 >
-	<main>
-		<Hero client:load />
-		<FeaturesSection client:visible />
-		<BenefitsSection client:visible />
-		<CTASection client:visible id="form" />
-	</main>
+  <Hero client:load />
+  <FeaturesSection client:visible />
+  <BenefitsSection client:visible />
+  <CTASection client:visible id="form" />
 </Layout>
