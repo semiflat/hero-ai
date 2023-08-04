@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { reactive } from "vue";
 import Button from "./Button.vue";
 
 export interface LeadsForm {
@@ -6,18 +7,57 @@ export interface LeadsForm {
 }
 
 const props = defineProps<LeadsForm>();
+
+const state = reactive({
+  email: "",
+});
+
+// const submit = async (event) => {
+//   const data = new FormData(event.target);
+
+//   fetch(event.target.action, {
+//     method: "POST",
+//     body: data,
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   })
+//     .then((response) => {
+//       console.log(response);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
 </script>
 
 <template>
-  <form class="leads-form" :class="{ 'leads-form--stacked': props.allowStack }">
+  <form
+    class="leads-form"
+    :class="{ 'leads-form--stacked': props.allowStack }"
+    action="https://semiflat.us21.list-manage.com/subscribe/post?u=6061ed9523812d4f5b8c04db9&amp;id=7218e015e1&amp;f_id=004b5de1f0"
+    method="post"
+  >
     <label class="leads-form__label">Your e-mail</label>
     <input
       class="leads-form__input"
       type="email"
-      placeholder="Your e-mail"
+      name="EMAIL"
+      id="mce-EMAIL"
       required
+      v-model="state.email"
     />
-    <Button class="leads-form__button" is="button" type="submit" primary>
+
+    <!--<div id="mce-responses" class="clearfalse">
+      <div class="response" id="mce-error-response" style="display: none"></div>
+      <div
+        class="response"
+        id="mce-success-response"
+        style="display: none"
+      ></div>
+    </div>-->
+
+    <Button class="leads-form__button" tag="button" type="submit" primary>
       Join waitlist
     </Button>
   </form>

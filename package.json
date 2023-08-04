@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "@astrojs/vue": "^2.2.1",
+    "@braid/vue-formulate": "^2.5.3",
     "astro": "^2.5.6",
     "lottie-vuejs": "^0.4.0",
     "lottie-web-vue": "^2.0.6",
     "sass": "^1.62.1",
     "vue": "^3.2.30",
+    "vue-tiny-validate": "^0.2.4",
     "vue-writer": "^1.2.0"
   }
 }
