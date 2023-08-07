@@ -13,7 +13,7 @@ import BgGradientMobile from "../assets/hero-gradient-mobile.svg";
       We’re working to bring a completely new way of creating websites to the
       market. We’ll notify you when Hero launches.
     </p>
-    <Button href="/hero-lp/" primary>Go back to the main page</Button>
+    <Button href="/" primary>Go back to the main page</Button>
     <div class="typ__bg">
       <picture>
         <source media="(min-width: 768px)" :srcset="BgGradient" />
