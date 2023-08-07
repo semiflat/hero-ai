@@ -8,7 +8,11 @@ import BgGradientMobile from "../assets/hero-gradient-mobile.svg";
 
 <template>
   <div class="typ">
-    <Heading>Thank you for subscribing to the waitlist!</Heading>
+    <Heading>Thank you</Heading>
+    <p class="typ__lead">
+      We’re working to bring a completely new way of creating websites to the
+      market. We’ll notify you when Hero launches.
+    </p>
     <Button href="/hero-lp/" primary>Go back to the main page</Button>
     <div class="typ__bg">
       <picture>
@@ -21,7 +25,7 @@ import BgGradientMobile from "../assets/hero-gradient-mobile.svg";
 
 <style lang="scss" scoped>
 .typ {
-position: relative;
+  position: relative;
   padding: clamp(10rem, 42vw, 15rem) 2rem 5rem;
   display: flex;
   flex-direction: column;
@@ -57,6 +61,11 @@ position: relative;
         rgba(217, 217, 217, 0) 100%
       );
     }
+  }
+
+  &__lead {
+    opacity: .72;
+    max-width: 62ch;
   }
 }
 </style>
